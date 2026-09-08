@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alton Mullinax | Coach, DEKA Roadshow & Amway</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:       #CF1019;
+      --red-dark:  #a30d14;
+      --black:     #0a0a0a;
+      --black-2:   #111111;
+      --card:      #161616;
+      --border:    #2a2a2a;
+      --white:     #ffffff;
+      --gray:      #aaaaaa;
+      --gray-lt:   #e0e0e0;
+      --orange:    #EE7624;
+      --green:     #1a9e61;
+      --green-dark:#147a4c;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-head:    'Barlow Condensed', sans-serif;
+      --font-body:    'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Utility ──────────────────────────────────────────────── */
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary { background: var(--red); color: var(--white); }
+    .btn-primary:hover { background: var(--red-dark); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+    .btn-outline:hover { background: var(--white); color: var(--black); }
+
+    .btn-orange { background: var(--orange); color: var(--white); }
+    .btn-orange:hover { background: #d46820; }
+
+    .btn-green { background: var(--green); color: var(--white); }
+    .btn-green:hover { background: var(--green-dark); }
+
+    /* ── Nav ──────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2.5rem;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--red); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 5rem;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(207,16,25,0.04) 40px,
+        rgba(207,16,25,0.04) 41px
+      );
+      z-index: 0;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name .line2 { color: var(--red); display: block; }
+
+    .hero-divider {
+      width: 60px;
+      height: 4px;
+      background: var(--red);
+      margin: 1.5rem auto;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-head);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gray-lt);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub2 {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--gray);
+      font-family: var(--font-head);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      z-index: 1;
+      animation: bounce 2s infinite;
+    }
+    .scroll-hint svg { width: 18px; height: 18px; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── About ────────────────────────────────────────────────── */
+    #about {
+      padding: 6rem 1.5rem;
+      background: var(--black-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-inner h2 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-inner p {
+      color: var(--gray);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .about-inner p strong { color: var(--white); }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 0.3rem;
+    }
+
+    /* ── Roles Section ────────────────────────────────────────── */
+    #roles {
+      padding: 6rem 1.5rem;
+      background: var(--black);
+    }
+
+    .roles-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .roles-header h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ── Role Cards ───────────────────────────────────────────── */
+    .role-card {
+      position: relative;
+      background: var(--card);
+      padding: 3rem 2.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .role-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+
+    .role-card.underdog::before { background: var(--orange); }
+    .role-card.deka::before     { background: var(--red); }
+    .role-card.amway::before    { background: var(--green); }
+
+    .role-card .bg-letter {
+      position: absolute;
+      bottom: -1rem;
+      right: -0.5rem;
+      font-family: var(--font-display);
+      font-size: 10rem;
+      line-height: 1;
+      opacity: 0.04;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .role-card .company-tag {
+      font-family: var(--font-head);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .role-card.underdog .company-tag { color: var(--orange); border-color: var(--orange); }
+    .role-card.deka     .company-tag { color: var(--red);    border-color: var(--red);    }
+    .role-card.amway    .company-tag { color: var(--green);  border-color: var(--green);  }
+
+    .role-card h3 {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+    }
+
+    .role-card .role-title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .role-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--gray-lt);
+    }
+
+    .feature-list li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    .role-card.underdog .feature-list li::before { background: var(--orange); }
+    .role-card.deka     .feature-list li::before { background: var(--red);    }
+    .role-card.amway    .feature-list li::before { background: var(--green);  }
+
+    .role-card .card-cta {
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    /* ── Amway Shop Band ──────────────────────────────────────── */
+    #amway-cta {
+      background: var(--black-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #amway-cta::before {
+      content: 'SHOP';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: 20rem;
+      color: rgba(26,158,97,0.05);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .amway-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .amway-inner .section-label { color: var(--green); }
+
+    .amway-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .amway-inner p {
+      font-size: 1.05rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .amway-inner p strong { color: var(--white); }
+
+    .amway-products {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .amway-pill {
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--green);
+      color: var(--green);
+    }
+
+    /* ── DEKA Roadshow Callout ────────────────────────────────── */
+    #roadshow-cta {
+      background: var(--red);
+      padding: 5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #roadshow-cta::before {
+      content: 'DEKA';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: 20rem;
+      color: rgba(0,0,0,0.08);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .roadshow-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .roadshow-inner .section-label { color: rgba(255,255,255,0.7); }
+
+    .roadshow-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .roadshow-inner p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* ── Contact ──────────────────────────────────────────────── */
+    #contact {
+      padding: 6rem 1.5rem;
+      background: var(--black-2);
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-inner h2 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-inner p {
+      color: var(--gray);
+      margin-bottom: 3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      max-width: 400px;
+      padding: 1.1rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .contact-link:hover {
+      border-color: var(--red);
+      background: rgba(207,16,25,0.05);
+    }
+
+    .contact-link .icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .contact-link .icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .contact-link .link-text { text-align: left; }
+
+    .contact-link .link-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      color: var(--gray);
+      display: block;
+      margin-bottom: 0.1rem;
+      font-weight: 500;
+    }
+
+    .contact-link .link-value { color: var(--white); }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    footer a { color: var(--red); }
+
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logos span {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+    }
+
+    .footer-sep { width: 1px; height: 20px; background: var(--border); }
+
+    /* ── Mobile ───────────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 56px; left: 0; right: 0;
+        background: var(--black-2);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem;
+        gap: 1.25rem;
+      }
+      .mobile-menu-toggle { display: block; }
+      .role-card { padding: 2rem 1.5rem; }
+      .roles-grid { grid-template-columns: 1fr; }
+      .stats-row { gap: 1.5rem; }
+      #amway-cta::before { font-size: 8rem; }
+      #roadshow-cta::before { font-size: 8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════════════════ -->
+  <nav>
+    <div class="nav-logo">Alton <span>Mullinax</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#roles">What I Do</a></li>
+      <li><a href="#amway-cta">Shop</a></li>
+      <li><a href="#roadshow-cta">DEKA Roadshow</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ══ HERO ═════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Fitness Coach &nbsp;·&nbsp; DEKA Roadshow Coordinator &nbsp;·&nbsp; Amway Independent Business Owner</p>
+      <h1 class="hero-name">
+        Alton
+        <span class="line2">Mullinax</span>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">Train Hard. Go Further. Bring the Challenge.</p>
+      <p class="hero-sub2">
+        Helping athletes crush their DEKA and Hyrox goals, bringing the DEKA Roadshow to gyms across the Midwest, and fueling performance with premium Amway supplements.
+      </p>
+      <div class="hero-ctas">
+        <a href="#roles" class="btn btn-primary">What I Do</a>
+        <a href="#amway-cta" class="btn btn-green">Shop Supplements</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ═════════════════════════════════════════════════ -->
+  <section id="about">
+    <div class="about-inner">
+      <span class="section-label">Who I Am</span>
+      <h2>Built on <span style="color:var(--red)">Grit</span>, Driven by <span style="color:var(--red)">Results</span></h2>
+      <p>
+        I'm <strong>Alton Mullinax</strong>, a fitness coach and event coordinator operating at the intersection of performance training and competitive fitness. I live and breathe the functional fitness world — and I bring that intensity to every athlete I work with and every event I run.
+      </p>
+      <p>
+        Whether you're chasing a <strong>PR on the DEKA FIT floor</strong>, pushing for a podium finish at Hyrox, looking to electrify your gym community with a world-class event, or fueling your performance with <strong>premium supplements</strong> — I'm the person to call.
+      </p>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Industry Roles</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Midwest Region</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Limits to Push</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ROLES ══════════════════════════════════════════════════ -->
+  <section id="roles">
+    <div class="roles-header">
+      <span class="section-label">What I Do</span>
+      <h2>Three Roles. <span style="color:var(--red)">One Mission.</span></h2>
+    </div>
+    <div class="roles-grid">
+
+      <!-- Underdog Training Systems -->
+      <div class="role-card underdog">
+        <div class="bg-letter">U</div>
+        <span class="company-tag">Underdog Training Systems</span>
+        <h3>Fitness Coach &amp;<br>Performance Trainer</h3>
+        <p class="role-title">DEKA &middot; Hyrox &middot; Functional Fitness</p>
+        <p>
+          Through Underdog Training Systems, I design and deliver programming specifically tuned for the demands of DEKA and Hyrox competition. Whether you're stepping onto the floor for the first time or chasing a top finish, I'll build you a plan that works.
+        </p>
+        <ul class="feature-list">
+          <li>DEKA-specific strength &amp; conditioning programming</li>
+          <li>Hyrox race strategy and simulation training</li>
+          <li>1-on-1 and small group coaching</li>
+          <li>Movement skill, pacing &amp; zone management</li>
+          <li>Athlete performance tracking &amp; accountability</li>
+        </ul>
+        <div class="card-cta">
+          <a href="#contact" class="btn btn-orange">Work With Me</a>
+        </div>
+      </div>
+
+      <!-- DEKA Roadshow -->
+      <div class="role-card deka">
+        <div class="bg-letter">D</div>
+        <span class="company-tag">DEKA · Spartan</span>
+        <h3>Roadshow Coordinator<br><span style="color:var(--red)">Midwest Region</span></h3>
+        <p class="role-title">Bringing DEKA to Your Gym</p>
+        <p>
+          As the DEKA Roadshow Coordinator for the Midwest, I partner directly with gym owners to bring the full DEKA experience to their facility. It's a no-risk, high-energy event that introduces your community to one of the fastest-growing fitness challenges in the world.
+        </p>
+        <ul class="feature-list">
+          <li>Full DEKA Roadshow event coordination &amp; setup</li>
+          <li>Zero cost to host — equipment &amp; support provided</li>
+          <li>Drive member engagement and retention</li>
+          <li>Give your gym community a taste of competition</li>
+          <li>Seamless experience — I handle the logistics</li>
+        </ul>
+        <div class="card-cta">
+          <a href="#roadshow-cta" class="btn btn-primary">Bring DEKA to My Gym</a>
+        </div>
+      </div>
+
+      <!-- Amway -->
+      <div class="role-card amway">
+        <div class="bg-letter">A</div>
+        <span class="company-tag">Amway</span>
+        <h3>Independent<br><span style="color:var(--green)">Business Owner</span></h3>
+        <p class="role-title">Performance Supplements &middot; Wellness</p>
+        <p>
+          As an Amway Independent Business Owner, I connect athletes and health-focused individuals with premium Nutrilite supplements and Amway wellness products — the same quality I trust to fuel my own training.
+        </p>
+        <ul class="feature-list">
+          <li>Nutrilite performance &amp; recovery supplements</li>
+          <li>Protein, vitamins &amp; mineral blends</li>
+          <li>Science-backed, plant-based formulas</li>
+          <li>Products for athletes of every level</li>
+          <li>Shop anytime through my personal store</li>
+        </ul>
+        <div class="card-cta">
+          <a href="https://www.amway.com/en_US/myshop/afromansupps" target="_blank" rel="noopener" class="btn btn-green">Visit My Shop</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ AMWAY SHOP CTA BAND ════════════════════════════════════ -->
+  <section id="amway-cta">
+    <div class="amway-inner">
+      <span class="section-label">Amway My Shop</span>
+      <h2>Fuel Your <span style="color:var(--green)">Performance</span></h2>
+      <p>
+        I trust <strong>Nutrilite</strong> to fuel my own training — and I want to share that with you. Shop my personal Amway store for premium supplements, vitamins, and wellness products backed by decades of science. Whether you're training for DEKA, Hyrox, or just leveling up your health, the right nutrition makes all the difference.
+      </p>
+      <div class="amway-products">
+        <span class="amway-pill">Protein</span>
+        <span class="amway-pill">Recovery</span>
+        <span class="amway-pill">Vitamins</span>
+        <span class="amway-pill">Energy</span>
+        <span class="amway-pill">Wellness</span>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://www.amway.com/en_US/myshop/afromansupps" target="_blank" rel="noopener" class="btn btn-green">Shop Now</a>
+        <a href="#contact" class="btn btn-outline">Ask Me Anything</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ROADSHOW CTA BAND ══════════════════════════════════════ -->
+  <section id="roadshow-cta">
+    <div class="roadshow-inner">
+      <span class="section-label">Gym Owners</span>
+      <h2>Bring DEKA to Your Gym</h2>
+      <p>
+        Ready to give your members a world-class experience? The DEKA Roadshow is a turnkey event — I bring the equipment, the energy, and the expertise to your facility. No cost, no hassle. Just an unforgettable day for your community.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="#contact" class="btn" style="background:#fff;color:var(--red);">Let's Make It Happen</a>
+        <a href="https://www.spartan.com/en/deka" target="_blank" rel="noopener" class="btn btn-outline">Learn About DEKA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ════════════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="contact-inner">
+      <span class="section-label">Reach Out</span>
+      <h2>Let's <span style="color:var(--red)">Connect</span></h2>
+      <p>
+        Whether you want to start training, bring DEKA to your gym, or learn more about Amway products — reach out and let's talk.
+      </p>
+      <div class="contact-links">
+
+        <a href="mailto:your@email.com" class="contact-link">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">Email</span>
+            <span class="link-value">your@email.com</span>
+          </div>
+        </a>
+
+        <a href="tel:+10000000000" class="contact-link">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">Phone / Text</span>
+            <span class="link-value">(000) 000-0000</span>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" class="contact-link">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">Instagram</span>
+            <span class="link-value">@yourhandle</span>
+          </div>
+        </a>
+
+        <a href="https://www.amway.com/en_US/myshop/afromansupps" target="_blank" rel="noopener" class="contact-link">
+          <div class="icon" style="background:var(--green);">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 4h-2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2V3a1 1 0 00-2 0v1H9V3a1 1 0 00-2 0v1zm0 2v1a1 1 0 002 0V6h6v1a1 1 0 002 0V6h2v4H5V6h2zm-2 6h14v8H5v-8z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">Amway My Shop</span>
+            <span class="link-value">afromansupps</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-logos">
+      <span>Underdog Training Systems</span>
+      <div class="footer-sep"></div>
+      <span>DEKA Roadshow Midwest</span>
+      <div class="footer-sep"></div>
+      <span>Amway IBO</span>
+    </div>
+    <p>
+      &copy; 2026 Alton Mullinax &nbsp;·&nbsp;
+      <a href="https://www.spartan.com/en/deka" target="_blank" rel="noopener">DEKA by Spartan</a> &nbsp;·&nbsp;
+      <a href="https://www.underdogfitnessgym.com/" target="_blank" rel="noopener">Underdog Training Systems</a> &nbsp;·&nbsp;
+      <a href="https://www.amway.com/en_US/myshop/afromansupps" target="_blank" rel="noopener">Amway My Shop</a>
+    </p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-links a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.style.color = '');
+          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (active) active.style.color = '#CF1019';
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

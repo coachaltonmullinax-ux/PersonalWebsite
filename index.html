@@ -519,35 +519,44 @@
 
     /* ── DEKA Roadshow Callout ────────────────────────────────── */
     #roadshow-cta {
-      background: var(--red);
+      background: var(--black);
       padding: 5rem 1.5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    #roadshow-cta::before {
-      content: 'DEKA';
+    #roadshow-cta .roadshow-video {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: var(--font-display);
-      font-size: 20rem;
-      color: rgba(0,0,0,0.08);
-      white-space: nowrap;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.45;
+    }
+
+    #roadshow-cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(207,16,25,0.35) 100%);
+      z-index: 1;
       pointer-events: none;
-      user-select: none;
     }
 
     .roadshow-inner {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 700px;
       margin: 0 auto;
     }
 
-    .roadshow-inner .section-label { color: rgba(255,255,255,0.7); }
+    .roadshow-inner .section-label { color: rgba(255,255,255,0.8); }
 
     .roadshow-inner h2 {
       font-family: var(--font-display);
@@ -556,13 +565,15 @@
       text-transform: uppercase;
       line-height: 1;
       margin-bottom: 1rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
     }
 
     .roadshow-inner p {
       font-size: 1.05rem;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       margin-bottom: 2rem;
       line-height: 1.7;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.7);
     }
 
     /* ── Contact ──────────────────────────────────────────────── */
@@ -878,6 +889,10 @@
 
   <!-- ══ ROADSHOW CTA BAND ══════════════════════════════════════ -->
   <section id="roadshow-cta">
+    <video class="roadshow-video" autoplay loop muted playsinline preload="auto">
+      <source src="deka-roadshow.mov" type="video/quicktime" />
+      <source src="deka-roadshow.mov" type="video/mp4" />
+    </video>
     <div class="roadshow-inner">
       <span class="section-label">Gym Owners</span>
       <h2>Bring DEKA to Your Gym</h2>
